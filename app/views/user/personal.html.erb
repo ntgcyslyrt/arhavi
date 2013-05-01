@@ -1,0 +1,103 @@
+<form action="/user/personal_save" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <fieldset>
+    <legend>Kullanıcı Bilgileri Güncelleme Ekranı</legend>
+    <div class="control-group">
+      <label class="control-label" for="input-tc">Tc Kimlik Numarası (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required digits" id="input-tc" name="tc" value="<%= session[:userinfo][:tc] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input02">Ad (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input02" name="first_name" value="<%= session[:userinfo][:first_name] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input03">Soyad (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input03" name="last_name" value="<%= session[:userinfo][:last_name] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Cinsiyet (*)</label>
+      <div class="controls">
+	<label class="radio">
+	  <input type="radio" name="gender" id="optionsRadios1" value="Erkek"
+	  <%= 'checked' if session[:userinfo][:gender] == 'Erkek' %>> Erkek
+	</label>
+	<label class="radio">
+	  <input type="radio" name="gender" id="optionsRadios2" value="Bayan"
+	  <%= 'checked' if session[:userinfo][:gender] == 'Bayan'%>> Bayan
+	</label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select11">Doğum Günü (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input3" name="birthday" data-datepicker="datepicker"
+	value="<%= session[:userinfo][:birthday] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="fileInput">Fotoğraf</label>
+      <div class="controls">
+        <% if session[:userinfo][:image] %>
+          <img src="/uploads/donors/<%= session[:userinfo][:image] %>" alt="Resim Yüklenmemiş"/>
+        <% end %>
+	<input type="file" class="input-file" id="fileInput" name="image">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>İletişim Bilgileri</legend>
+    <div class="control-group">
+      <label class="control-label" for="input14">E-mail (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required email" id="input14" name="email" value="<%= session[:userinfo][:email] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input11">Telefon Numarası</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge" id="input11" name="phone_number" value="<%= session[:userinfo][:phone_number] %>">
+	<p class="help-block">Örneğin: 0506-693-4002</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select-city">İl (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select-city" name="city_id">
+	  <option value=""></option>
+	  <% City.all.each do |city| %>
+	    <option value="<%= city[:id] %>" <%= 'selected' if city[:id] == session[:userinfo][:city_id] %>><%= city[:city] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input-district">İlçe (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select-district" name="district_id">
+	  <% District.find_all_by_city_id(session[:userinfo][:city_id]).each do |district| %>
+	    <option value="<%= district[:id] %>" <%= 'selected' if district[:id] == session[:userinfo][:district_id].to_i %>>
+	    <%= district[:district] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input16">Adres</label>
+      <div class="controls">
+	<textarea type="text" class="input-xlarge" id="input16" rows="3" name="address"><%= session[:userinfo][:address] %></textarea>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Bilgilerimi Güncelle</button>
+    <a class="btn" href="/user">İptal</a>
+  </div>
+</form>
+
