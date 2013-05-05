@@ -6,7 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'pg'
-#gem 'mysql2'
+gem 'mysql2'
 #gem 'devise'
 gem 'heroku'
 gem 'execjs'
@@ -20,7 +20,7 @@ gem 'rake', '~> 10.0.4'
 # in production environments by default.
 
 group :development do
-  gem 'sqlite3', '~> 1.3.5'
+  #gem 'sqlite3', '~> 1.3.5'
   gem 'rspec-rails', '~> 2.6.1'
 end
 
