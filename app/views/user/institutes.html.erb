@@ -1,0 +1,37 @@
+<h2>Kurum ve Kuruluşlar</h2>
+<hr />
+
+<% institutes = Institute.all %>
+
+<% if institutes.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Adı</th>
+        <th>İl</th>
+        <th>İlçe</th>
+        <th>Kurum Tipi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% institutes.each do |institute| %>
+        <tr>
+          <td><%= institute.name %></td>
+          <td><%= institute.city.city %></td>
+          <td><%= institute.district.district %></td>
+          <td><%= institute.role.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <center>
+    Hiç Kayıt Bulunamadı
+  </center>
+  <div class="form-actions">
+    <center>
+      <a href="/" class="btn btn-primary">Ana Sayfaya Dön</a>
+    </center>
+  </div>
+<% end %>
+

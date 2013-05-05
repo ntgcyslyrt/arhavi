@@ -78,5 +78,10 @@ class UserController < ApplicationController
 
   def support
   end
+  def institutes
+  end
+
+  def institute_register
+  end
 
 end

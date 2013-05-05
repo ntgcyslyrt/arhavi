@@ -9,6 +9,10 @@
     <li class="<%= "active" if request[:action] == 'password' %>">
     <a href="/<%= request[:controller] %>/password"><i class="icon-lock"></i> <span>Parola Değiştir</span></a>
     </li>
+    </li>
+    <li class="<%= "active" if request[:action] == 'institutes' %>">
+    <a href="/<%= request[:controller] %>/institutes"><i class="icon-info-sign"></i> <span>Kurum</span></a>
+    </li>
   </ul>
 <% end %>
 
