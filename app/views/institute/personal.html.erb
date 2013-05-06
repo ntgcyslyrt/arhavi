@@ -1,0 +1,83 @@
+<form action="/institute/personal_save" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <fieldset>
+    <legend>Kurum Bilgileri Güncelleme Ekranı</legend>
+    <div class="control-group">
+      <label class="control-label" for="input02">Kurum Adı (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input02" name="name" value="<%= session[:instituteinfo][:name] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select01">Kurum Tipi (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select01" name="role_id">
+	  <option value=""></option>
+	  <% Role.all.each do |role| %>
+	    <option value="<%= role[:id] %>" <%= 'selected' if role[:id] == session[:instituteinfo][:role_id] %>> <%= role[:name] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="fileInput">Fotoğraf</label>
+      <div class="controls">
+        <% if session[:instituteinfo][:image] %>
+          <img src="/uploads/institutes/<%= session[:instituteinfo][:image] %>" alt="Resim Yüklenmemiş"/>
+        <% end %>
+        <input type="file" class="input-file" id="fileInput" name="image">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>İletişim Bilgileri</legend>
+    <div class="control-group">
+      <label class="control-label" for="input14">E-mail (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required email" id="input14" name="email" value="<%= session[:instituteinfo][:email] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input11">Telefon Numarası</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge" id="input11" name="phone_number" value="<%= session[:instituteinfo][:phone_number] %>">
+	<p class="help-block">Örneğin: 0506-693-4002</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select-city">İl (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select-city" name="city_id">
+	  <option value=""></option>
+	  <% City.all.each do |city| %>
+            <option value="<%= city[:id] %>"
+            <%= 'selected' if city[:id] == session[:instituteinfo][:city_id] %>> <%= city[:city] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input-district">İlçe (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select-district" name="district_id">
+	  <% District.find_all_by_city_id(session[:instituteinfo][:city_id]).each do |district| %>
+	    <option value="<%= district[:id] %>" <%= 'selected' if district[:id] == session[:instituteinfo][:district_id].to_i %>>
+	    <%= district[:district] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input16">Adres</label>
+      <div class="controls">
+	<textarea type="text" class="input-xlarge" id="input16" rows="3" name="address"><%= session[:instituteinfo][:address] %></textarea>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Bilgilerimi Güncelle</button>
+    <a class="btn" href="/home/logout">İptal</a>
+  </div>
+</form>
+
