@@ -1,8 +1,5 @@
 class Student < ActiveRecord::Base
   # attr_accessible :title, :body
-  has_many :reservation
-  has_many :transfer
-  has_many :dealer
   belongs_to :city
   belongs_to :district
 

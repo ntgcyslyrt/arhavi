@@ -1,0 +1,90 @@
+<form action="/home/institute_register_save" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <fieldset>
+    <legend>Kurum Kayıt Sayfası</legend>
+    <div class="control-group">
+      <label class="control-label" for="input02">Kurum Adı (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input02" name="name" value="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select01">Kurum Tipi (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select01" name="role_id">
+	  <option value=""></option>
+	  <% Role.all.each do |role| %>
+	    <option value="<%= role[:id] %>"><%= role[:name] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="fileInput">Fotoğraf</label>
+      <div class="controls">
+	<input type="file" class="input-file" id="fileInput" name="image">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>İletişim Bilgileri</legend>
+    <div class="control-group">
+      <label class="control-label" for="input14">E-mail (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required email" id="input14" name="email" value="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input11">Telefon Numarası</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge" id="input11" name="phone_number">
+	<p class="help-block">Örneğin: 0506-693-4002</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select-city">İl (*)</label>
+      <div class="controls">
+	<select class="input-xlarge required" id="select-city" name="city_id">
+	  <option value=""></option>
+	  <% City.all.each do |city| %>
+	    <option value="<%= city[:id] %>"><%= city[:city] %></option>
+	  <% end %>
+	</select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select-district">İlçe (*)</label>
+      <div class="controls">
+	<select class="input-xlarge" id="select-district" name="district_id"></select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input16">Adres</label>
+      <div class="controls">
+	<textarea type="text" class="input-xlarge" id="input16" rows="3" name="address"></textarea>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Parola Bilgileri</legend>
+    <div class="control-group">
+      <label class="control-label" for="input14">Parola (*)</label>
+      <div class="controls">
+	<input type="password" class="input-xlarge required" id="input14" name="password" value="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input15">Parola Tekrar (*)</label>
+      <div class="controls">
+	<input type="password" class="input-xlarge" id="input15" name="password2">
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+    <a class="btn" href="/home">İptal</a>
+  </div>
+</form>
+

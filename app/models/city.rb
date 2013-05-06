@@ -1,6 +1,5 @@
 class City < ActiveRecord::Base
   has_one  :student
-  has_many  :user
   has_one :institute
 
   def self.get_name id

@@ -16,7 +16,8 @@ Atakum::Application.routes.draw do
   post 'home/register_save'
   get  'home/donations'
     
-
+  get  'home/institute_register'
+  post 'home/institute_register_save'
   get  "dynamic_districts/:id" => "home#dynamic_districts"
 
   match "/admin" => "admin#index"
@@ -75,7 +76,6 @@ Atakum::Application.routes.draw do
     post  'password_save'
     get   'support'
     get   'institutes'
-    get   'institute_register'
   end
 
   match "institute" => "institute#index"
