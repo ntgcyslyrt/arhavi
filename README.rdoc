@@ -8,8 +8,14 @@ $ bundle install --without production
 
 $ mkdb staj staj
 
+$ rake db:drop
+
+$rake db:create
+
 $ rake db:migrate
 
 $ rake db:seed
+
+$ rails db -p < db/city-district-list.sql
 
 Daha sonra tarayıcınıza http://0.0.0.0:3000/ yazıp görüntüleyebilirsiniz.

@@ -1,0 +1,41 @@
+<form action="/admin/personal_save" method="post" class="form-horizontal" >
+  <div class="control-group">
+    <label class="control-label" for="input02">Adı (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required" id="input02" name="first_name" value="<%= session[:admininfo][:first_name] %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input03">Soyadı (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required" id="input03" name="last_name" value="<%= session[:admininfo][:last_name] %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input14">E-mail (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required email" id="input14" name="email" value="<%= session[:admininfo][:email] %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input11">Telefon Numarası</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge" id="input11" name="phone_number" value="<%= session[:admininfo][:phone_number] %>">
+      <p class="help-block"><%= t "register.example" %>: 0544-291-10-46</p>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="fileInput">Fotoğraf</label>
+    <div class="controls">
+      <% if session[:admininfo][:image] %>
+        <img src="/uploads/admins/<%= session[:admininfo][:image] %>" alt="Resim Yüklenmemiş"/>
+      <% end %>
+      <input type="file" class="input-file" id="fileInput" name="image">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Bilgilerimi Güncelle</button>
+  </div>
+</form>
+
