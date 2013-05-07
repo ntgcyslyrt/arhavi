@@ -16,3 +16,9 @@ if Role.count == 0
   Role.create(:name => 'Donanim')
   Role.create(:name => 'Yazilim-Donanim')
 end
+if Admin.count == 0
+  Admin.create(:first_name => 'Tugce', :last_name => 'Yesilyurt', :email => 'nty@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Seda', :last_name => 'Dogan', :email => 'seda@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Begum', :last_name => 'Topyildiz', :email => 'beg@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Canan', :last_name => 'Demirel', :email => 'kcd@bil.omu.edu.tr', :password => '123456')
+end

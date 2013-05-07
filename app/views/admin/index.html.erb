@@ -1,2 +1,51 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Kayıtlar</th>
+      <th>Sayı</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yöneticiler</td>
+      <td><%= Admin.count %></td>
+      <td>
+        <a href="/admin/admins/">Listele</a> |
+        <a href="/admin/admins/new">Ekle</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Kurum Rolleri</td>
+      <td><%= Role.count %></td>
+      <td>
+        <a href="/admin/roles/">Listele</a> |
+        <a href="/admin/roles/new">Ekle</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Kurumlar</td>
+      <td><%= Institute.count %></td>
+      <td>
+        <a href="/admin/institutes/">Listele</a>
+        <% if Institute.all(:conditions => {:status => 2}).count > 0 %>
+        | <a href="/admin/institutes"><span class="badge badge-error">Onay Bekleyen Yeni Bir Kurum Var</span></a>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>İstatistikler</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tüm İstatistikler</td>
+      <td><a href="/admin/statistic">Listele</a></td>
+    </tr>
+  </tbody>
+</table>

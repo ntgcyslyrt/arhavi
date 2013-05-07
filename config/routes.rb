@@ -1,5 +1,7 @@
 Atakum::Application.routes.draw do
 
+  get "admins/index"
+
   get "admin/index"
 
   get "institute/index"
@@ -79,7 +81,7 @@ Atakum::Application.routes.draw do
   end
 
   match "institute" => "institute#index"
-  match "institute/donor/:id" => "institute#donor"
+  match "institute/student/:id" => "institute#student"
   namespace :institute do
     get   "logout"
     get   "login"
