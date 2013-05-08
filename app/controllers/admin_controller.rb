@@ -2,7 +2,7 @@
 
 class AdminController < ApplicationController
 
-  #include ImageHelper
+  include ImageHelper
 
   before_filter :require_admin, :except => [:login, :sign_in, :logout, :google_create]
 

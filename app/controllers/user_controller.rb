@@ -2,7 +2,7 @@
 
 class UserController < ApplicationController
 
-  #include ImageHelper
+  include ImageHelper
 
   before_filter :require_login, :except => [:login, :sign_in, :logout]
 
