@@ -76,20 +76,20 @@ class AdminController < ApplicationController
     @pagetitle = "Yardım"
   end
 
-  #def statistic
-   # template = "statistic/statistic"
-    #@pagetitle = "İstatistikler"
+  def statistic
+    template = "statistic/statistic"
+    @pagetitle = "İstatistikler"
     #if params[:static] == 'city_donor'
      # @pagetitle = "İllere Göre Donör İstatistikleri"
       #template = "statistic/city_donor"
     #elsif params[:static] == 'blood_donor'
      # @pagetitle = "Kan Grubu İstatistikleri"
       #template = "statistic/blood_donor"
-    #elsif params[:static] == 'role_institute'
-     # @pagetitle = "Kurum ve Kuruluş İstatistikleri"
-      #template = "statistic/role_institute"
-    #end
-    #render :action => template
-  #end
+    if params[:static] == 'role_institute'
+      @pagetitle = "Kurum ve Kuruluş İstatistikleri"
+      template = "statistic/role_institute"
+    end
+    render :action => template
+  end
 
 end

@@ -6,7 +6,7 @@ class Institute < ActiveRecord::Base
 
   has_secure_password
 
-  attr_accessible :name, :role_id, :email, :password, :phone_number, :city_id, :district_id, :address
+  attr_accessible :name, :role_id, :email, :password, :phone_number, :city_id, :district_id, :address, :status
 
   validates_presence_of :email, :name
   validates_uniqueness_of :email

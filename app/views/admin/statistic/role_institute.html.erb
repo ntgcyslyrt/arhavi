@@ -1,0 +1,21 @@
+<h2>Rollere Göre Kurum Sayıları</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Sayı</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Role.all.each do |role| %>
+    <tr>
+      <td><%= role[:name] %></td>
+      <td><%= Institute.all(:conditions => {:role_id => role[:id]}).count %></td>
+      <td><a href="/admin/institutes?role_id=<%= role[:id] %>">Listele</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
