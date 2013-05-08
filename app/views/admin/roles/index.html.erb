@@ -1,2 +1,42 @@
-<h1>Admin::Roles#index</h1>
-<p>Find me in app/views/admin/roles/index.html.erb</p>
+<% roles = Role.all %>
+
+<% if roles.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Rol Adı</th>
+        <th>Ekleme Tarihi</th>
+        <th>Güncelleme Tarihi</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% roles.each do |role| %>
+        <tr>
+          <td><%= role[:id] %></td>
+          <td><%= role[:name] %></td>
+          <td><%= role[:created_at] %></td>
+          <td><%= role[:updated_at] %></td>
+          <td class="links">
+            <a href="/<%= request[:controller] %>/<%= role[:id] %>" rel="tooltip" class="icon-info-sign" title="Göster"></a>
+            <a href="/<%= request[:controller] %>/<%= role[:id] %>/destroy" rel="tooltip" class="icon-trash" title="Sil"
+              onclick="return confirm('Bu kaydı gerçekten silmek istiyor musunuz?')"></a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <center>
+    Hiç Kayıt Bulunamadı
+  </center>
+  <div class="form-actions">
+    <center>
+      <a href="/admin" class="btn btn-primary">Ana Sayfaya Dön</a>
+    </center>
+  </div>
+<% end %>
+
+<a href="/<%= request[:controller] %>/new" class="btn btn-primary">Yeni Role Ekle</a>
+

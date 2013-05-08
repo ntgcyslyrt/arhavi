@@ -1,0 +1,24 @@
+<% if role = Role.find(:first, :conditions => {:id => params[:id]}) %>
+
+  <form action="/admin/roles/update" method="post" class="form-horizontal" >
+    <fieldset>
+      <legend>Kurum Rolü Düzenle</legend>
+      <div class="control-group">
+        <label class="control-label" for="input01">Rol Adı (*)</label>
+        <div class="controls">
+          <input type="text" class="input-xlarge required" id="input01" name="name" value="<%= role[:name] %>">
+        </div>
+      </div>
+      <input type="hidden" name="id" value="<%= role[:id] %>">
+    </fieldset>
+    <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a class="btn" href="/">İptal</a>
+  </div>
+</form>
+<% else %>
+  <center>
+    Böyle Bir Kullanıcı Bulunamadı
+  </center>
+<% end %>
+
