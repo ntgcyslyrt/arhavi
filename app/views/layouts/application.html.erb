@@ -17,7 +17,7 @@
     <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">19 Mayıs Üniversitesi</a>
+          <a class="brand" href="http://www.omu.edu.tr/">19 Mayıs Üniversitesi</a>
           <ul class="nav">
             <li><a href="/">Anasayfa</a></li>
             <li><a href="/about">Hakkında</a></li>
@@ -25,7 +25,7 @@
           </ul>
           <ul class="nav pull-right">
             <% if session[:admin] %>
-              <li><a href="/admin">Komisyon</a></li>
+              <li><a href="/admin">Yönetim</a></li>
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:admininfo][:email] %><b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -47,7 +47,7 @@
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:userinfo][:email] %><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/user/">Ogrenci</a></li>
+                <li><a href="/user/">Öğrenci Sayfası</a></li>
                 <li class="divider"></li>
                 <li><a href="/user/logout">Çıkış</a></li>
               </ul>
@@ -56,7 +56,7 @@
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giriş Yap<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/user">Öğrenci Giriş</a></li>
+                <li><a href="/user">Öğrenci Girişi</a></li>
                 <li class="divider"></li>
                 <li><a href="/institute">Kurum Girişi</a></li>
                 <li class="divider"></li>
