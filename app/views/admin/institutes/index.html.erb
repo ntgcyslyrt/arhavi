@@ -1,0 +1,50 @@
+<% if params[:role_id] and not params[:role_id].empty? %>
+  <% institutes = Institute.find(:all, :conditions => {:role_id => params[:role_id]})%>
+<% else%>
+  <% institutes = Institute.all %>
+<% end%>
+
+<% if institutes.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Kurum Adı</th>
+        <th>E-mail</th>
+        <th>Kurum Tipi</th>
+        <th>Durumu</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% institutes.each do |institute| %>
+        <tr>
+          <td><%= institute.id %></td>
+          <td><%= institute.name %></td>
+          <td><%= institute.email %></td>
+          <td><%= institute.role.name %></td>
+          <td>
+            <% if institute.status == 2%>
+              <a href="/<%= request[:controller] %>/<%= institute.id %>/confirm" rel="tooltip" title="Onayla">Onaylanmamış</a>
+            <% else %>
+              <a href="/<%= request[:controller] %>/<%= institute.id %>/confirm" rel="tooltip" title="Onayı Kaldır">Onaylanmış</a>
+            <% end %>
+          </td>
+          <td class="links">
+            <a href="/<%= request[:controller] %>/<%= institute.id %>" rel="tooltip" class="icon-info-sign" title="Göster"></a>
+            <a href="/<%= request[:controller] %>/<%= institute.id %>/destroy" rel="tooltip" class="icon-trash" title="Sil"
+              onclick="return confirm('Bu kaydı gerçekten silmek istiyor musunuz?')"></a>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <center>
+    Hiç Kayıt Bulunamadı
+  </center>
+  <div class="form-actions">
+    <center>
+      <a href="/admin" class="btn btn-primary">Ana Sayfaya Dön</a>
+    </center>
+  </div>
+<% end %>
