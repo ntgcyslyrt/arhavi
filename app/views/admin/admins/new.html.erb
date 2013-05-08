@@ -1,0 +1,54 @@
+<form action="/admin/admins" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <div class="control-group">
+    <label class="control-label" for="input02">Ad (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required" id="input02" name="first_name">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input03">Soyad (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required" id="input03" name="last_name">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input14">E-mail (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required email" id="input14" name="email">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input11">Telefon Numarası</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge" id="input11" name="phone_number">
+      <p class="help-block"><%= t "register.example" %>: 0506-693-40-02</p>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="fileInput">Fotoğraf</label>
+    <div class="controls">
+      <input type="file" class="input-file" id="fileInput" name="image">
+    </div>
+  </div>
+
+  <fieldset>
+    <legend>Parola Bilgileri</legend>
+    <div class="control-group">
+      <label class="control-label" for="input16">Parola (*)</label>
+      <div class="controls">
+	<input type="password" class="input-xlarge required" id="input16" name="password" value="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input15">Parola Tekrar (*)</label>
+      <div class="controls">
+	<input type="password" class="input-xlarge required" id="input15" name="password2">
+      </div>
+    </div>
+  </fieldset>
+
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Yönetici Ekle</button>
+  </div>
+</form>

@@ -26,7 +26,7 @@
     <a href="/<%= request[:controller] %>"><i class="icon-info-sign"></i> <span>Göster</span></a>
     </li>
 
-    <% unless ['admin/institutes', 'admin/students', 'admin/donorrequests', 'admin/bloodmakings'].include?(request[:controller]) %>
+    <% unless ['admin/institutes', 'admin/donors', 'admin/donorrequests', 'admin/bloodmakings'].include?(request[:controller]) %>
       <li class="<%= 'active' if request[:action] == 'new' %>">
       <a href="/<%= request[:controller] %>/new"><i class="icon-ok"></i> <span>Yeni Ekle</span></a>
       </li>

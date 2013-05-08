@@ -1,5 +1,7 @@
 Atakum::Application.routes.draw do
 
+  get "roles/index"
+
   get "admins/index"
 
   get "admin/index"
