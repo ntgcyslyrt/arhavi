@@ -53,8 +53,6 @@ GEM
       multi_json (~> 1.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    formtastic-bootstrap (2.1.1)
-      formtastic (~> 2.2)
     hashery (2.1.0)
     hashie (2.0.4)
     heroku (2.39.2)
@@ -201,7 +199,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.2)
   execjs
   formtastic
-  formtastic-bootstrap
   heroku
   jquery-rails
   json

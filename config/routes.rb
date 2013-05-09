@@ -14,7 +14,7 @@ Atakum::Application.routes.draw do
 
   root :to => 'home#index'
 
-  match "/auth/:provider/callback" => "admin#google_create"
+  #match "/auth/:provider/callback" => "admin#google_create"
 
   match "home" => "home#index"
   match "about" => "home#about"
@@ -22,8 +22,9 @@ Atakum::Application.routes.draw do
 
   get  'home/register'
   post 'home/register_save'
-  get  'home/donations'
-    
+  
+  get   'home/pro_adv'
+
   get  'home/institute_register'
   post 'home/institute_register_save'
   get  "dynamic_districts/:id" => "home#dynamic_districts"
@@ -85,10 +86,10 @@ Atakum::Application.routes.draw do
     post  'personal_save'
     get   'password'
     post  'password_save'
-    get   'request'
-    post  'request_save'
     get   'query'
     post  'update'
+    get   'request'
+    post  'request_save'
     get   'support'
     get   'querypdf'
   end

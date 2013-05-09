@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509170207) do
+ActiveRecord::Schema.define(:version => 20130509205501) do
 
   create_table "admins", :force => true do |t|
     t.string   "first_name",                     :null => false
@@ -23,28 +23,6 @@ ActiveRecord::Schema.define(:version => 20130509170207) do
     t.integer  "status",          :default => 2
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-  end
-
-  create_table "cities", :force => true do |t|
-    t.string  "city",       :limit => 100
-    t.integer "plate_code", :limit => 1,   :null => false
-    t.integer "phone_code",                :null => false
-    t.integer "siralama",                  :null => false
-  end
-
-  create_table "countries", :force => true do |t|
-    t.string "dual_code",   :limit => 2,   :null => false
-    t.string "triple_code", :limit => 3,   :null => false
-    t.string "country",     :limit => 100, :null => false
-    t.string "phone_code",  :limit => 6,   :null => false
-  end
-
-  add_index "countries", ["id"], :name => "id", :unique => true
-
-  create_table "districts", :force => true do |t|
-    t.integer "city_id",                :null => false
-    t.string  "district", :limit => 60, :null => false
-    t.string  "city",     :limit => 55, :null => false
   end
 
   create_table "institute_requests", :force => true do |t|
@@ -83,16 +61,6 @@ ActiveRecord::Schema.define(:version => 20130509170207) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "semtmah", :id => false, :force => true do |t|
-    t.integer "id",                         :null => false
-    t.string  "semt",        :limit => 60,  :null => false
-    t.string  "mahalle",     :limit => 100, :null => false
-    t.string  "post_code",   :limit => 6,   :null => false
-    t.integer "district_id",                :null => false
-  end
-
-  add_index "semtmah", ["id"], :name => "id", :unique => true
-
   create_table "students", :force => true do |t|
     t.integer  "tc",              :limit => 8, :null => false
     t.string   "first_name",                   :null => false
@@ -108,15 +76,6 @@ ActiveRecord::Schema.define(:version => 20130509170207) do
     t.integer  "district_id",                  :null => false
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-  end
-
-  create_table "uploads", :force => true do |t|
-    t.string   "upload_file_name"
-    t.string   "upload_content_type"
-    t.integer  "upload_file_size"
-    t.datetime "upload_updated_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
   end
 
 end

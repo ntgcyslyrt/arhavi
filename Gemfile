@@ -37,7 +37,7 @@ group :assets do
   gem 'bootstrap-will_paginate'
 
   gem 'formtastic'
-  gem 'formtastic-bootstrap'
+#  gem 'formtastic-bootstrap'
 end
 
 # assets gem's
