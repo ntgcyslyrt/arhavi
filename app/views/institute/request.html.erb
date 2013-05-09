@@ -1,0 +1,23 @@
+<form action="/institute/request_save" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <fieldset>
+    <legend>Stajyer İstek Formu</legend>
+    <div class="control-group">
+      <label class="control-label" for="input-probation">Stajyer Sayısı (*)</label>
+      <div class="controls">
+	<textarea type="text" class="input-xlarge required" id="input-probation" name="probation_advert_id"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input-content"> Açıkça Belirtiniz</label>
+      <div class="controls">
+	<textarea type="text" class="input-xlarge required" id="input-content" rows="5" name="content"></textarea>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">İsteği Gönder</button>
+    <a class="btn" href="/institute">İptal</a>
+  </div>
+</form>
+

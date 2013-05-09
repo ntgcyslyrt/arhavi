@@ -1,0 +1,5 @@
+class InstituteRequest < ActiveRecord::Base
+  attr_accessible :institute_id, :probation_advert_id, :content
+  belongs_to :institute
+  belongs_to :probation_advert
+end

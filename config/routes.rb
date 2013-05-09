@@ -85,9 +85,10 @@ Atakum::Application.routes.draw do
     post  'personal_save'
     get   'password'
     post  'password_save'
+    get   'request'
+    post  'request_save'
     get   'query'
     post  'update'
-    post  'bloodmaking'
     get   'support'
     get   'querypdf'
   end

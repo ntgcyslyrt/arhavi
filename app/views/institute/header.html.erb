@@ -8,5 +8,8 @@
     </li>
     <li class="<%= "active" if request[:action] == 'password' %>">
     <a href="/<%= request[:controller] %>/password"><i class="icon-map-marker"></i> <span>Parola Değiştir</span></a>
+    <li class="<%= "active" if request[:action] == 'request' %>">
+    <a href="/<%= request[:controller] %>/request"><i class="icon-map-marker"></i> <span>Stajyer İsteği</span></a>
+    </li>
   </ul>
 <% end %>
