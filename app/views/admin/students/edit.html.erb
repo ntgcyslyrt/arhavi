@@ -1,0 +1,41 @@
+<form action="/admin/students/update" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <div class="control-group">
+    <label class="control-label" for="input02">Adı (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required" id="input02" name="first_name" value="<%= @record[:first_name] %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input03">Soyadı (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required" id="input03" name="last_name" value="<%= @record[:last_name] %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input14">E-mail (*)</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge required email" id="input14" name="email" value="<%= @record[:email] %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input11">Telefon Numarası</label>
+    <div class="controls">
+      <input type="text" class="input-xlarge" id="input11" name="phone_number" value="<%= @record[:phone_number] %>">
+      <p class="help-block"><%= t "register.example" %>: 0506-693-40-02</p>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="fileInput">Fotoğraf</label>
+    <div class="controls">
+      <% if @record[:image] %>
+        <img src="/uploads/students/<%= @record[:image] %>" alt="" />
+      <% end %>
+      <input type="file" class="input-file" id="fileInput" name="image">
+    </div>
+  </div>
+  <input type="hidden" class="input-xlarge" name="id" value="<%= @record[:id] %>">
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+  </div>
+</form>

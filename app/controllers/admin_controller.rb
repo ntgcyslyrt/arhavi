@@ -2,7 +2,7 @@
 
 class AdminController < ApplicationController
 
-  include ImageHelper
+  #include ImageHelper
 
   before_filter :require_admin, :except => [:login, :sign_in, :logout, :google_create]
 
@@ -66,10 +66,6 @@ class AdminController < ApplicationController
       'roles' => 'Role',
     }
     render :text => "burası export: #{params[:c]}"
-  end
-
-  def blood_makings
-    @pagetitle = "Kurumlar Listelendi"
   end
 
   def support

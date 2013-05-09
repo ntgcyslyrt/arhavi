@@ -2,8 +2,8 @@
 
 class InstituteController < ApplicationController
 
-  include ImageHelper
-  include PdfHelper
+  #include ImageHelper
+  #include PdfHelper
 
   before_filter :require_login, :except => [:login, :sign_in, :logout, :google_create]
 

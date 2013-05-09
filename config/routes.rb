@@ -1,5 +1,7 @@
 Atakum::Application.routes.draw do
 
+  get "students/index"
+
   get "institutes/index"
 
   get "roles/index"
@@ -43,22 +45,7 @@ Atakum::Application.routes.draw do
     end
     post "roles/update"
 
-    resources :donors do
-      get :destroy
-      get :confirm
-    end
-
     resources :institutes do
-      get :destroy
-      get :confirm
-    end
-
-    resources :donorrequests do
-      get :destroy
-      get :confirm
-    end
-
-    resources :bloodmakings do
       get :destroy
       get :confirm
     end
@@ -68,8 +55,12 @@ Atakum::Application.routes.draw do
     end
     post "admins/update"
 
-  end
+    resources :students do
+      get :destroy
+    end
+    post "students/update"
 
+  end
 
   match "user" => "user#index"
   namespace :user do

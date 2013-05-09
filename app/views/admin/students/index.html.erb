@@ -1,0 +1,41 @@
+<% students = Student.all %>
+<% if students.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>E-mail</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.each do |student| %>
+        <tr>
+          <td><%= student[:id] %></td>
+          <td><%= student[:first_name] %></td>
+          <td><%= student[:last_name] %></td>
+          <td><%= student[:email] %></td>
+          <td class="links">
+            <a href="/<%= request[:controller] %>/<%= student[:id] %>" rel="tooltip" class="icon-info-sign" title="Göster"></a>
+            <a href="/<%= request[:controller] %>/<%= student[:id] %>/edit" rel="tooltip" class="icon-pencil" title="Düzenle"></a>
+            <a href="/<%= request[:controller] %>/<%= student[:id] %>/destroy" rel="tooltip" class="icon-trash" title="Sil"
+              onclick="return confirm('Bu kaydı gerçekten silmek istiyor musunuz?')"></a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <center>
+    Hiç Kayıt Bulunamadı
+  </center>
+  <div class="form-actions">
+    <center>
+      <a href="/admin" class="btn btn-primary">Ana Sayfaya Dön</a>
+    </center>
+  </div>
+<% end %>
+
+<a href="/<%= request[:controller] %>/new" class="btn btn-primary">Yeni Öğrenci Ekle</a>

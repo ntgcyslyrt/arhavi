@@ -5,11 +5,9 @@ module AdminHelper
   def header_title foo
     bar = {
       'admin/admins' => 'Yöneticiler',
-      'admin/donors' => 'Donörler',
+      'admin/students' => 'Öğrenciler',
       'admin/roles' => 'Roller',
       'admin/institutes' => 'Kurumlar',
-      'admin/donorrequests' => 'Donör İstekleri',
-      'admin/bloodmakings' => 'Kayıtlı Kan Verme',
     }
     bar[foo]
   end
