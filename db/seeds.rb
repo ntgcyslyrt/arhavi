@@ -22,3 +22,15 @@ if Admin.count == 0
   Admin.create(:first_name => 'Begum', :last_name => 'Topyildiz', :email => 'beg@bil.omu.edu.tr', :password => '123456')
   Admin.create(:first_name => 'Canan', :last_name => 'Demirel', :email => 'kcd@bil.omu.edu.tr', :password => '123456')
 end
+if ProbationAdvert.count == 0
+   ProbationAdvert.create(:sayi => '1')
+   ProbationAdvert.create(:sayi => '2')
+   ProbationAdvert.create(:sayi => '3')
+   ProbationAdvert.create(:sayi => '4')
+   ProbationAdvert.create(:sayi => '5')
+   ProbationAdvert.create(:sayi => '6')
+   ProbationAdvert.create(:sayi => '7')
+   ProbationAdvert.create(:sayi => '8')
+   ProbationAdvert.create(:sayi => '9')
+   ProbationAdvert.create(:sayi => '10')
+end

@@ -2,13 +2,18 @@
   <fieldset>
     <legend>Stajyer İstek Formu</legend>
     <div class="control-group">
-      <label class="control-label" for="input-probation">Stajyer Sayısı (*)</label>
+      <label class="control-label" for="select-probation">Stajyer Sayısı (*)</label>
       <div class="controls">
-	<textarea type="text" class="input-xlarge required" id="input-probation" name="probation_advert_id"></textarea>
+	<select class="input-xlarge required" id="select-probation" name="probation_advert_id">
+	  <option value=""></option>
+	  <% ProbationAdvert.all.each do |probation| %>
+	    <option value="<%= probation[:id] %>"><%= probation[:sayi] %></option>
+	  <% end %>
+	</select>
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="input-content"> Açıkça Belirtiniz</label>
+      <label class="control-label" for="input-content">İsteğinizin Gerekçeleri ile Birlikte Açıkça Belirtiniz</label>
       <div class="controls">
 	<textarea type="text" class="input-xlarge required" id="input-content" rows="5" name="content"></textarea>
       </div>

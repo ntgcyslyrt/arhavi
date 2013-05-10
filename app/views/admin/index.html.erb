@@ -40,6 +40,16 @@
         <a href="/admin/students/new">Ekle</a>
       </td>
     </tr>
+    <tr>
+      <td>Kurum Özel İstekleri</td>
+      <td><%= InstituteRequest.count %></td>
+      <td>
+        <a href="/admin/instituterequests">Listele</a>
+        <% if InstituteRequest.all(:conditions => {:status => 2}).count > 0 %>
+        | <a href="/admin/instituterequests"><span class="badge badge-error">Kurum Özel İsteği Var</span></a>
+        <% end %>
+      </td>
+    </tr>
   </tbody>
 </table>
 

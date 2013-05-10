@@ -8,6 +8,7 @@ module AdminHelper
       'admin/students' => 'Öğrenciler',
       'admin/roles' => 'Roller',
       'admin/institutes' => 'Kurumlar',
+      'admin/instituterequests' => 'Kurum Özel İstekleri',
     }
     bar[foo]
   end

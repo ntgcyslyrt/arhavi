@@ -1,0 +1,44 @@
+<% requests = InstituteRequest.all %>
+
+<% if requests.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Kurum</th>
+        <th>E-mail</th>
+        <th>Durum</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% requests.each do |req| %>
+        <tr>
+          <td><%= req[:id] %></td>
+          <td><%= req.institute.name %></td>
+          <td><%= req.institute.email %></td>
+          <% if req.status == 2%>
+            <td class="status">Okunmamış</td>
+          <% else %>
+            <td>Okunmuş</td>
+          <% end %>
+          <td class="links">
+            <a href="/<%= request[:controller] %>/<%= req.id %>" rel="tooltip" class="icon-book" title="Göster"></a>
+            <a href="/<%= request[:controller] %>/<%= req.id %>/destroy" rel="tooltip" class="icon-trash" title="Sil"
+              onclick="return confirm('Bu kaydı gerçekten silmek istiyor musunuz?')"></a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <center>
+    Hiç Kayıt Bulunamadı
+  </center>
+  <div class="form-actions">
+    <center>
+      <a href="/admin" class="btn btn-primary">Ana Sayfaya Dön</a>
+    </center>
+  </div>
+<% end %>
+

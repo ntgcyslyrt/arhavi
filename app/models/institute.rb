@@ -3,6 +3,7 @@ class Institute < ActiveRecord::Base
   belongs_to :role
   belongs_to :city
   belongs_to :district
+  has_one    :institute_request
 
   has_secure_password
 

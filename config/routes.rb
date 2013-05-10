@@ -1,5 +1,7 @@
 Atakum::Application.routes.draw do
 
+  get "instituterequests/index"
+
   get "students/index"
 
   get "institutes/index"
@@ -50,6 +52,12 @@ Atakum::Application.routes.draw do
       get :destroy
       get :confirm
     end
+    
+    resources :instituterequests do
+      get :destroy
+      get :confirm
+    end
+    post "instituterequests/update"
 
     resources :admins do
       get :destroy
