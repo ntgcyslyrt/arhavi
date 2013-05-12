@@ -26,7 +26,7 @@ Atakum::Application.routes.draw do
   post 'home/register_save'
   
   get   'home/pro_adv'
-
+  get   'home/pro_doc'
   get  'home/institute_register'
   post 'home/institute_register_save'
   get  "dynamic_districts/:id" => "home#dynamic_districts"
