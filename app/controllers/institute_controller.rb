@@ -95,5 +95,9 @@ class InstituteController < ApplicationController
     end
     redirect_to '/institute/request'
   end
+  def querypdf
+    pdf = studentspdf Student.sfind(999, params[:probation_advert_id], params[:city_id], params[:district_id])
+    send_data(pdf.render(), :filename => "students.pdf")
+  end
 end
 
