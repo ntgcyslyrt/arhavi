@@ -2,9 +2,9 @@
 
 class AdminController < ApplicationController
 
-  #include ImageHelper
+  include ImageHelper
 
-  before_filter :require_admin, :except => [:login, :sign_in, :logout, :google_create]
+  before_filter :require_admin, :except => [:login, :sign_in, :logout]
 
   def require_admin
     redirect_to '/admin/login' unless session[:admin]
@@ -75,12 +75,6 @@ class AdminController < ApplicationController
   def statistic
     template = "statistic/statistic"
     @pagetitle = "İstatistikler"
-    #if params[:static] == 'city_donor'
-     # @pagetitle = "İllere Göre Donör İstatistikleri"
-      #template = "statistic/city_donor"
-    #elsif params[:static] == 'blood_donor'
-     # @pagetitle = "Kan Grubu İstatistikleri"
-      #template = "statistic/blood_donor"
     if params[:static] == 'role_institute'
       @pagetitle = "Kurum ve Kuruluş İstatistikleri"
       template = "statistic/role_institute"

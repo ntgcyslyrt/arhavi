@@ -2,7 +2,7 @@
 
 class UserController < ApplicationController
 
-  #include ImageHelper
+  include ImageHelper
 
   before_filter :require_login, :except => [:login, :sign_in, :logout]
 
@@ -78,6 +78,7 @@ class UserController < ApplicationController
 
   def support
   end
+
   def institutes
   end
 

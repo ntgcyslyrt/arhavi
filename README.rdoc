@@ -1,6 +1,6 @@
 Rails uygulasını çalıştırmak için aşağıdaki adımları uygulayın:
 
-$ git clone git@github.com:ntgcyslyrt/arhavi.git
+$ git clone git@github.com:kcd/atakum.git
 
 $ cd atakum
 
