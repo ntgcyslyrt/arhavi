@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  # attr_accessible :title, :body
+
   has_one  :institute
 
   attr_accessible :name

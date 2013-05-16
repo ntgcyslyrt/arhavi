@@ -1,4 +1,5 @@
 <% if instituterequest = InstituteRequest.find(:first, :conditions => {:id => params[:id]}) %>
+  <% InstituteRequest.update(params[:id], {:status => 1}).save %>
 
   <form class="form-horizontal" >
     <fieldset>
@@ -10,7 +11,7 @@
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="input16">Bağış İsteğinin Gerekçeleri</label>
+        <label class="control-label" for="input16">Stajyer İsteği Hakkında Bilgi</label>
         <div class="controls">
           <textarea type="text" class="input-xlarge disable" id="disabledInput" disabled="" rows="5" name="address"><%= instituterequest.content %></textarea>
         </div>

@@ -63,7 +63,7 @@
       <label class="control-label" for="fileInput">Fotoğraf</label>
       <div class="controls">
         <% if session[:userinfo][:image] %>
-          <img src="/uploads/donors/<%= session[:userinfo][:image] %>" alt="Resim Yüklenmemiş"/>
+          <img src="/uploads/students/<%= session[:userinfo][:image] %>" alt="Resim Yüklenmemiş"/>
         <% end %>
 	<input type="file" class="input-file" id="fileInput" name="image">
       </div>

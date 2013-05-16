@@ -3,9 +3,9 @@
 class InstituteController < ApplicationController
 
   include ImageHelper
-  #include PdfHelper
+  include PdfHelper
 
-  before_filter :require_login, :except => [:login, :sign_in, :logout, :google_create]
+  before_filter :require_login, :except => [:login, :sign_in, :logout]
 
   def require_login
     redirect_to '/institute/login' unless session[:institute]
@@ -28,18 +28,6 @@ class InstituteController < ApplicationController
     reset_session
     session[:instituteinfo] = nil
     redirect_to '/institute', :notice => "Başarılı bir şekilde sistemden çıkış yapıldı."
-  end
-
-  def google_create
-    auth = request.env["omniauth.auth"]
-
-    if session[:instituteinfo] = Institute.find_by_email(auth['info']['email'])
-      session[:institute] = true
-    else
-      flash[:error] = "Yetkilendirilme Başarısız! Sistemde Google Hesabınızın Kaydı Bulunamadı"
-    end
-
-    redirect_to '/institute/login'
   end
 
   def personal_save
@@ -94,10 +82,6 @@ class InstituteController < ApplicationController
       flash[:error] = "İstek Gönderilemedi"
     end
     redirect_to '/institute/request'
-  end
-  def querypdf
-    pdf = studentspdf Student.sfind(999, params[:probation_advert_id], params[:city_id], params[:district_id])
-    send_data(pdf.render(), :filename => "students.pdf")
   end
 end
 

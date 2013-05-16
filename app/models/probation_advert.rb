@@ -1,5 +1,5 @@
 class ProbationAdvert < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
   attr_accessible :sayi
   has_one  :institute
   has_one  :institute_request
