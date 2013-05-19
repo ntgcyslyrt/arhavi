@@ -97,7 +97,7 @@ class UserController < ApplicationController
     })
 
     if probation_location.save
-      flash[:notice] = "İsteğiniz Sistem Yöneticilerine Ulaştırıldı. Teşekkür Ederiz"
+      flash[:notice] = "Bilgileriniz Sistem Yöneticilerine Ulaştırıldı. Teşekkür Ederiz"
     else
       flash[:error] = "İstek Gönderilemedi"
     end
