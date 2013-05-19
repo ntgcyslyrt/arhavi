@@ -1,19 +1,29 @@
-<% if instituterequest = InstituteRequest.find(:first, :conditions => {:id => params[:id]}) %>
-  <% InstituteRequest.update(params[:id], {:status => 1}).save %>
-
+<% if probationlocation = ProbationLocation.find(:first, :conditions => {:id => params[:id]}) %>
   <form class="form-horizontal" >
     <fieldset>
-      <legend>Stajyer İstek Formu</legend>
+      <legend>Öğrenci Staj Bilgi Formu</legend>
       <div class="control-group">
-        <label class="control-label" for="select-probation">Stajyer Sayısı (*)</label>
+        <label class="control-label" for="input16">Staj Türü</label>
         <div class="controls">
-          <input type="text" class="input-xlarge disable" id="disabledInput" disabled="" value="<%= instituterequest.probation_advert.sayi %>">
+          <textarea type="text" class="input-xlarge disable" id="disabledInput" disabled="" rows="5" name="address"><%= probationlocation.probation_type %></textarea>
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="input16">Stajyer İsteği Hakkında Bilgi</label>
+        <label class="control-label" for="input16">Kurum Adı</label>
         <div class="controls">
-          <textarea type="text" class="input-xlarge disable" id="disabledInput" disabled="" rows="5" name="address"><%= instituterequest.content %></textarea>
+          <textarea type="text" class="input-xlarge disable" id="disabledInput" disabled="" rows="5" name="address"><%= probationlocation.institute_name %></textarea>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="input16">Başlangıç Tarihi</label>
+        <div class="controls">
+          <textarea type="text" class="input-xlarge disable" id="disabledInput" disabled="" rows="5" name="address"><%= probationlocation.start_date %></textarea>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="input16">Bitiş Tarihi</label>
+        <div class="controls">
+          <textarea type="text" class="input-xlarge disable" id="disabledInput" disabled="" rows="5" name="address"><%= probationlocation.finish_date %></textarea>
         </div>
       </div>
     </fieldset>
