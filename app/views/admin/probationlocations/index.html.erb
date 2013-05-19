@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <th>#</th>
+        <th>Öğrenci Numarası</th>
         <th>Staj Türü</th>
         <th>Kurum Adı</th>
         <th>Başlangıç Tarihi</th>
@@ -16,6 +17,7 @@
       <% requests.each do |req| %>
         <tr>
           <td><%= req[:id] %></td>
+	  <td><%= req[:student_no] %></td>
           <td><%= req[:probation_type] %></td>
           <td><%= req[:institute_name] %></td>
           <td><%= req[:start_date] %></td>

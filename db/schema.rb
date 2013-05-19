@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130519080927) do
   end
 
   create_table "probation_locations", :force => true do |t|
+    t.string   "student_no",     :null => false
     t.string   "probation_type", :null => false
     t.string   "institute_name", :null => false
     t.date     "start_date"

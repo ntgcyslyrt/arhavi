@@ -90,6 +90,7 @@ class UserController < ApplicationController
 
   def location_save
       probation_location = ProbationLocation.new({
+      :student_no => params[:student_no],
       :probation_type => params[:probation_type],
       :institute_name => params[:institute_name],
       :start_date => params[:start_date],
