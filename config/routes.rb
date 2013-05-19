@@ -1,5 +1,7 @@
 Atakum::Application.routes.draw do
 
+  get "probationlocations/index"
+
   get "instituterequests/index"
 
   get "students/index"
