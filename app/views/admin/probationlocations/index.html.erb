@@ -1,2 +1,42 @@
-<h1>Admin::Probationlocations#index</h1>
-<p>Find me in app/views/admin/probationlocations/index.html.erb</p>
+<% requests = ProbationLocation.all %>
+
+<% if requests.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Staj Türü</th>
+        <th>Kurum Adı</th>
+        <th>Başlangıç Tarihi</th>
+        <th>Bitiş Tarihi</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% requests.each do |req| %>
+        <tr>
+          <td><%= req[:id] %></td>
+          <td><%= req[:probation_type] %></td>
+          <td><%= req[:institute_name] %></td>
+          <td><%= req[:start_date] %></td>
+          <td><%= req[:finish_date] %></td>
+          <td class="links">
+            <a href="/<%= request[:controller] %>/<%= req.id %>" rel="tooltip" class="icon-book" title="Göster"></a>
+            <a href="/<%= request[:controller] %>/<%= req.id %>/destroy" rel="tooltip" class="icon-trash" title="Sil"
+              onclick="return confirm('Bu kaydı gerçekten silmek istiyor musunuz?')"></a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <center>
+    Hiç Kayıt Bulunamadı
+  </center>
+  <div class="form-actions">
+    <center>
+      <a href="/admin" class="btn btn-primary">Ana Sayfaya Dön</a>
+    </center>
+  </div>
+<% end %>
+
