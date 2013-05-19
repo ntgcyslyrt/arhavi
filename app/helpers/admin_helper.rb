@@ -9,7 +9,6 @@ module AdminHelper
       'admin/roles' => 'Roller',
       'admin/institutes' => 'Kurumlar',
       'admin/instituterequests' => 'Kurum Özel İstekleri',
-      'admin/probationlocations' => 'Öğrenci Staj Yeri Bilgi',
     }
     bar[foo]
   end

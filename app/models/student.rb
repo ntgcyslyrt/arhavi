@@ -1,5 +1,7 @@
 class Student < ActiveRecord::Base
-  
+
+  has_many :student_files
+
   belongs_to :city
   belongs_to :district
 

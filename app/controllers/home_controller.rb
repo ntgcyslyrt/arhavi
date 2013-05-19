@@ -37,13 +37,35 @@ class HomeController < ApplicationController
     end
     redirect_to '/home/institute_register'
   end
-  #def logout
-    #reset_session
-    #session[:instituteinfo] = nil
-    #redirect_to '/home'
-  #end
 
   def dynamic_districts
     render :json => District.find_all_by_city_id(params[:id])
   end
+
+  def login
+    if request.post?
+      path = '/login'
+
+      if session[:userinfo] = Student.authenticate(params[:email], params[:password])
+        session[:user] = true
+        path = '/user'
+      elsif session[:instituteinfo] = Institute.authenticate(params[:email], params[:password])
+        session[:institute] = true
+        path = '/institute'
+      elsif session[:admininfo] = Admin.authenticate(params[:email], params[:password])
+        session[:admin] = true
+        path = '/admin'
+      elsif params[:email] or params[:password]
+        flash[:error] = "Kullanici adi veya parola hatali! Lutfen tekrar deneyiniz"
+      end
+
+      redirect_to path
+    end
+  end
+
+  def logout
+    reset_session
+    redirect_to '/login', :notice => "Başarılı bir şekilde sistemden çıkış yapıldı."
+  end
+
 end

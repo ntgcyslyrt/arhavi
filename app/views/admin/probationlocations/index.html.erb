@@ -10,6 +10,7 @@
         <th>Kurum Adı</th>
         <th>Başlangıç Tarihi</th>
         <th>Bitiş Tarihi</th>
+        <th>Durumu</th>
         <th></th>
       </tr>
     </thead>
@@ -22,6 +23,13 @@
           <td><%= req[:institute_name] %></td>
           <td><%= req[:start_date] %></td>
           <td><%= req[:finish_date] %></td>
+          <td>
+            <% if req.status == 2%>
+              <a href="/<%= request[:controller] %>/<%= req.id %>/confirm" rel="tooltip" title="Onayla">Onaylanmamış</a>
+            <% else %>
+              <a href="/<%= request[:controller] %>/<%= req.id %>/confirm" rel="tooltip" title="Onayı Kaldır">Onaylanmış</a>
+            <% end %>
+          </td>
           <td class="links">
             <a href="/<%= request[:controller] %>/<%= req.id %>" rel="tooltip" class="icon-book" title="Göster"></a>
             <a href="/<%= request[:controller] %>/<%= req.id %>/destroy" rel="tooltip" class="icon-trash" title="Sil"

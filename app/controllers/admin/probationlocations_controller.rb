@@ -21,5 +21,15 @@ class Admin::ProbationlocationsController < ApplicationController
     end
     redirect_to '/admin/probationlocations'
   end
+  def confirm
+    if probationlocation = ProbationLocation.find(params[:probationlocation_id])
+      foo = { 2 => 1, 1=> 2 }
+      ProbationLocation.update(params[:probationlocation_id], {:status => foo[probationlocation[:status]]}).save
+      flash[:notice] = "Kurum Guncellendi"
+    else
+      flash[:error] = "Boyle Bir Kurum Bulunamadi"
+    end
+    redirect_to "/admin/probationlocations"
+  end
 
 end

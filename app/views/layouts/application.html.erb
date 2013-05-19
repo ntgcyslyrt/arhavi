@@ -27,43 +27,16 @@
           <ul class="nav pull-right">
             <% if session[:admin] %>
               <li><a href="/admin">Yönetim</a></li>
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:admininfo][:email] %><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/admin/personal">Kişisel Bilgilerim</a></li>
-                <li class="divider"></li>
-                <li><a href="/admin/logout">Çıkış</a></li>
-              </ul>
-              </li>
+              <li><a href="/admin/personal"><%= session[:admininfo][:email] %></a></li>
+              <li><a href="/logout">Çıkış</a></li>
             <% elsif session[:institute] %>
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:instituteinfo][:email] %><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/institute/">Kurum Sayfası</a></li>
-                <li class="divider"></li>
-                <li><a href="/institute/logout">Çıkış</a></li>
-              </ul>
-              </li>
+              <li><a href="/institute/"><%= session[:instituteinfo][:email] %></a></li>
+              <li><a href="/logout">Çıkış</a></li>
             <% elsif session[:user] %>
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:userinfo][:email] %><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/user/">Öğrenci Sayfası</a></li>
-                <li class="divider"></li>
-                <li><a href="/user/logout">Çıkış</a></li>
-              </ul>
-              </li>
+              <li><a href="/user"><%= session[:userinfo][:email] %></a></li>
+              <li><a href="/logout">Çıkış</a></li>
             <% else %>
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giriş Yap<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/user">Öğrenci Girişi</a></li>
-                <li class="divider"></li>
-                <li><a href="/institute">Kurum Girişi</a></li>
-                <li class="divider"></li>
-                <li><a href="/admin">Komisyon Girişi</a></li>
-              </ul>
-              </li>
+              <li><a href="/login">Giriş Yap</a></li>
             <% end %>
           </ul>
         </div>
@@ -74,16 +47,14 @@
 
       <div class="content">
         <div class="row">
-          <div class="span9">
-            <% [:notice, :error, :alert].each do |level| %>
-              <% unless flash[level].blank? %>
-                <div data-alert="alert" class="alert alert-<%= level %> fade in">
-                  <a class="close" data-dismiss="alert" href="#">&times;</a>
-                  <%= content_tag :p, simple_format(flash[level]) %>
-                </div>
-              <% end %>
+          <% [:notice, :error, :alert].each do |level| %>
+            <% unless flash[level].blank? %>
+              <div data-alert="alert" class="alert alert-<%= level %> fade in">
+                <a class="close" data-dismiss="alert" href="#">&times;</a>
+                <%= content_tag :p, simple_format(flash[level]) %>
+              </div>
             <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
 

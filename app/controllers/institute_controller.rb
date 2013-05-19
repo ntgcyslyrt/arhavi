@@ -5,29 +5,10 @@ class InstituteController < ApplicationController
   include ImageHelper
   include PdfHelper
 
-  before_filter :require_login, :except => [:login, :sign_in, :logout]
+  before_filter :require_login
 
   def require_login
-    redirect_to '/institute/login' unless session[:institute]
-  end
-
-  def login
-    redirect_to '/institute' if session[:institute]
-  end
-
-  def sign_in
-    if session[:instituteinfo] = Institute.authenticate(params[:email], params[:password])
-      session[:institute] = true
-    elsif params[:email] or params[:password]
-      flash[:error] = "Kullanıcı adı veya parola hatalı! Lütfen tekrar deneyiniz"
-    end
-    redirect_to '/institute/login'
-  end
-
-  def logout
-    reset_session
-    session[:instituteinfo] = nil
-    redirect_to '/institute', :notice => "Başarılı bir şekilde sistemden çıkış yapıldı."
+    redirect_to '/login' unless session[:institute]
   end
 
   def personal_save

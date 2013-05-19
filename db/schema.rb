@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519080927) do
+ActiveRecord::Schema.define(:version => 20130519160605) do
 
   create_table "admins", :force => true do |t|
     t.string   "first_name",                     :null => false
@@ -56,17 +56,26 @@ ActiveRecord::Schema.define(:version => 20130519080927) do
   end
 
   create_table "probation_locations", :force => true do |t|
-    t.string   "student_no",     :null => false
-    t.string   "probation_type", :null => false
-    t.string   "institute_name", :null => false
+    t.string   "student_no",                    :null => false
+    t.string   "probation_type",                :null => false
+    t.string   "institute_name",                :null => false
     t.date     "start_date"
     t.date     "finish_date"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "status",         :default => 2
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "student_files", :force => true do |t|
+    t.integer  "student_id"
+    t.string   "name"
+    t.string   "file"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

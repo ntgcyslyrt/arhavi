@@ -4,29 +4,10 @@ class AdminController < ApplicationController
 
   include ImageHelper
 
-  before_filter :require_admin, :except => [:login, :sign_in, :logout]
+  before_filter :require_admin
 
   def require_admin
-    redirect_to '/admin/login' unless session[:admin]
-  end
-
-  def login
-    redirect_to '/admin' if session[:admin]
-  end
-
-  def sign_in
-    if session[:admininfo] = Admin.authenticate(params[:email], params[:password])
-      session[:admin] = true
-    elsif params[:email] or params[:password]
-      flash[:error] = "Kullanıcı adı veya parola hatalı! Lütfen tekrar deneyiniz"
-    end
-    redirect_to '/admin/login'
-  end
-
-  def logout
-    reset_session
-    session[:admininfo] = nil
-    redirect_to '/admin/login'
+    redirect_to '/login' unless session[:admin]
   end
 
   def index

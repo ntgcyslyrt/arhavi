@@ -17,10 +17,10 @@ if Role.count == 0
   Role.create(:name => 'Yazilim-Donanim')
 end
 if Admin.count == 0
-  Admin.create(:first_name => 'Tugce', :last_name => 'Yesilyurt', :email => 'nty@bil.omu.edu.tr', :password => '123456')
-  Admin.create(:first_name => 'Seda', :last_name => 'Dogan', :email => 'seda@bil.omu.edu.tr', :password => '123456')
-  Admin.create(:first_name => 'Begum', :last_name => 'Topyildiz', :email => 'beg@bil.omu.edu.tr', :password => '123456')
-  Admin.create(:first_name => 'Canan', :last_name => 'Demirel', :email => 'kcd@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Tugce', :last_name => 'Yesilyurt', :email => 'admin-nty@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Seda', :last_name => 'Dogan', :email => 'admin-seda@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Begum', :last_name => 'Topyildiz', :email => 'admin-beg@bil.omu.edu.tr', :password => '123456')
+  Admin.create(:first_name => 'Canan', :last_name => 'Demirel', :email => 'admin-kcd@bil.omu.edu.tr', :password => '123456')
 end
 if ProbationAdvert.count == 0
    ProbationAdvert.create(:sayi => '1')

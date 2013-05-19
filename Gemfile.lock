@@ -37,6 +37,9 @@ GEM
       will_paginate
     builder (3.0.4)
     cancan (1.6.9)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -106,7 +109,6 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    pg (0.12.2)
     polyglot (0.3.3)
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
@@ -196,6 +198,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-will_paginate
   cancan (~> 1.6.8)
+  carrierwave
   coffee-rails (~> 3.2.2)
   execjs
   formtastic
@@ -207,7 +210,6 @@ DEPENDENCIES
   mysql2
   omniauth
   omniauth-google
-  pg (~> 0.12.2)
   prawn
   pry
   rails (= 3.2.8)

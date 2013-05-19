@@ -12,6 +12,7 @@ gem 'execjs'
 gem 'cancan', '~> 1.6.8'
 gem 'less-rails'
 gem 'rake', '~> 10.0.4'
+gem 'carrierwave'
 # Gems used only for assets and not required
 # in production environments by default.
 
@@ -21,9 +22,9 @@ group :test, :development do
   gem 'pry'
 end
 
-group :production do
-  gem 'pg', '~> 0.12.2'
-end
+# group :production do
+#   gem 'pg', '~> 0.12.2'
+# end
 
 
 group :assets do

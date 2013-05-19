@@ -4,29 +4,10 @@ class UserController < ApplicationController
 
   include ImageHelper
 
-  before_filter :require_login, :except => [:login, :sign_in, :logout]
+  before_filter :require_login
 
   def require_login
-    redirect_to '/user/login' unless session[:user]
-  end
-
-  def login
-    redirect_to '/user' if session[:user]
-  end
-
-  def sign_in
-    if session[:userinfo] = Student.authenticate(params[:email], params[:password])
-      session[:user] = true
-    elsif params[:email] or params[:password]
-      flash[:error] = "Kullanici adi veya parola hatali! Lutfen tekrar deneyiniz"
-    end
-    redirect_to '/user/login'
-  end
-
-  def logout
-    reset_session
-    session[:userinfo] = nil
-    redirect_to '/user', :notice => "Basarili bir sekilde sistemden cikis yapildi."
+    redirect_to '/login' unless session[:user]
   end
 
   def index
@@ -85,6 +66,35 @@ class UserController < ApplicationController
   def institute_register
   end
 
+  def files
+    if file_id = params[:student_file_id]
+      if params[:download] == 'true'
+        file = StudentFile.find(file_id)
+
+        send_file(
+          file.file.path,
+          :disposition => 'attachment',
+          :filename => "#{file.name}#{File.extname(file.file.to_s).downcase}"
+        )
+      elsif params[:destroy] == 'true'
+        StudentFile.find(file_id).destroy
+        flash[:notice] = "Dosya silindi"
+        redirect_to user_files_path
+      end
+    elsif request.post?
+      file = StudentFile.new(params[:student_file])
+      if file.save
+        file.update_attributes(:file => "#{file.id}#{file.file}")
+        flash[:notice] = "Dosya kaydedildi"
+      else
+        flash[:error] = "Dosya kaydedilemedi. Lütfen tekrar deneyin."
+      end
+
+      redirect_to user_files_path
+    end
+
+    @student_files = StudentFile.where(student_id: session[:userinfo].id)
+  end
   def location
   end
 
@@ -104,4 +114,5 @@ class UserController < ApplicationController
     end
     redirect_to '/user/location'
   end
+
 end

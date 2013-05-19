@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h2>Dosya Yükle</h2>
+</div>
+
+<div class='thumbnail'>
+  <%= form_for StudentFile.new, :url => '', :html => {:multipart => true} do |f| %>
+    <%= f.hidden_field :student_id, value: session[:userinfo].id %>
+
+    <div class="control-group">
+      <%= f.label :name, 'Dosyad Adı' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <%= f.file_field :file %>
+    <p><%= f.submit :value => 'Yükle' %></p>
+  <% end %>
+</div>
+
+
+<div class="page-header">
+  <h2>Dosyalar</h2>
+</div>
+
+<table class="table table-bordered ">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Dosya Adı</th>
+      <th>Oluşturulma Zamanı</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_files.each do |file| %>
+      <tr>
+        <td><%= file.id %></td>
+        <td><%= link_to file.name, url_for(student_file_id: file.id, download: :true) %></td>
+        <td><%= file.created_at.strftime("%d.%m.%Y - %H:%M") %></td>
+        <td><%= link_to 'Sil', url_for(student_file_id: file.id, destroy: :true) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

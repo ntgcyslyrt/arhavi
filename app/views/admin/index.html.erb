@@ -55,6 +55,9 @@
       <td><%= ProbationLocation.count %></td>
       <td>
         <a href="/admin/probationlocations/">Listele</a>
+        <% if ProbationLocation.all(:conditions => {:status => 2}).count > 0 %>
+        | <a href="/admin/probationlocations"><span class="badge badge-error">Staj Yeri Bilgisi Var</span></a>
+        <% end %>
       </td>
     </tr>
   </tbody>
