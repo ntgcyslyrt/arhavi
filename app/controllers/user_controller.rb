@@ -85,4 +85,22 @@ class UserController < ApplicationController
   def institute_register
   end
 
+  def location
+  end
+
+  def location_save
+      probation_location = ProbationLocation.new({
+      :probation_type => params[:probation_type],
+      :institute_name => params[:institute_name],
+      :start_date => params[:start_date],
+      :finish_date => params[:finish_date],
+    })
+
+    if probation_location.save
+      flash[:notice] = "İsteğiniz Sistem Yöneticilerine Ulaştırıldı. Teşekkür Ederiz"
+    else
+      flash[:error] = "İstek Gönderilemedi"
+    end
+    redirect_to '/user/location'
+  end
 end

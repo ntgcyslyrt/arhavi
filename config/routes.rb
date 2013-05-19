@@ -82,6 +82,8 @@ Atakum::Application.routes.draw do
     post  'password_save'
     get   'support'
     get   'institutes'
+    get   'location'
+    post  'location_save'
   end
 
   match "institute" => "institute#index"

@@ -12,6 +12,9 @@
     <li class="<%= "active" if request[:action] == 'institutes' %>">
     <a href="/<%= request[:controller] %>/institutes"><i class="icon-map-marker"></i> <span>Kurum</span></a>
     </li>
+     <li class="<%= "active" if request[:action] == 'location' %>">
+    <a href="/<%= request[:controller] %>/location"><i class="icon-pencil"></i> <span>Staj Bilgileri</span></a>
+    </li>
   </ul>
 <% end %>
 

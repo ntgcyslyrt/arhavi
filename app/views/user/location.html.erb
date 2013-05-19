@@ -1,0 +1,38 @@
+<form action="/user/location_save" method="post" enctype="multipart/form-data" class="form-horizontal" >
+  <fieldset>
+    <legend>Stajyer Bilgi Formu</legend>
+    <div class="control-group">
+      <label class="control-label" for="input02">Staj Türü (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input02" name="probation_type" value="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input02">Kurum Adı (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input02" name="institute_name" value="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select11">Başlangıç Tarihi (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input3" name="start_date" data-datepicker="datepicker"
+	value="<%= session[:userinfo][:start_date] %>">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select11">Bitiş Tarihi (*)</label>
+      <div class="controls">
+	<input type="text" class="input-xlarge required" id="input3" name="finish_date" data-datepicker="datepicker"
+	value="<%= session[:userinfo][:finish_date] %>">
+      </div>
+    </div>
+    
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a class="btn" href="/user/location">İptal</a>
+  </div>
+</form>
+
