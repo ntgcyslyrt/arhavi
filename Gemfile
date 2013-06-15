@@ -42,19 +42,19 @@ group :assets do
 end
 
 # assets gem's
-  gem 'json'
-  gem 'jquery-rails'
-  gem 'simple-navigation'
+gem 'json'
+gem 'jquery-rails'
+gem 'simple-navigation'
 
 # pdf
-  gem 'prawn'
+gem 'prawn'
 
 # omniauth
-  gem 'omniauth'
-  gem 'omniauth-google'
+gem 'omniauth'
+gem 'omniauth-google'
 
 # To use ActiveModel has_secure_password
-  gem 'bcrypt-ruby'
+gem 'bcrypt-ruby'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

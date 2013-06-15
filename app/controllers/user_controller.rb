@@ -95,6 +95,7 @@ class UserController < ApplicationController
 
     @student_files = StudentFile.where(student_id: session[:userinfo].id)
   end
+
   def location
   end
 

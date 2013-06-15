@@ -2,6 +2,8 @@
 
 class HomeController < ApplicationController
 
+  include ImageHelper
+  
   def index
   end
 
@@ -56,11 +58,32 @@ class HomeController < ApplicationController
         session[:admin] = true
         path = '/admin'
       elsif params[:email] or params[:password]
-        flash[:error] = "Kullanici adi veya parola hatali! Lutfen tekrar deneyiniz"
+        flash[:error] = "Kullanici adı veya parola hatalı! Lutfen tekrar deneyiniz"
       end
 
       redirect_to path
     end
+  end
+
+  def google_create
+    auth = request.env['omniauth.auth']
+    email = auth['info']['email']
+    path = '/login'
+
+    if session[:userinfo] = Student.find_by_email(email)
+      session[:user] = true
+      path = '/user'
+    elsif session[:instituteinfo] = Institute.find_by_email(email)
+      session[:institute] = true
+      path = '/institute'
+    elsif session[:admininfo] = Admin.find_by_email(email)
+      session[:admin] = true
+      path = '/admin'
+    else
+      flash[:error] = "Kullanici adı veya parola hatalı! Lutfen tekrar deneyiniz"
+    end
+
+    redirect_to path
   end
 
   def logout

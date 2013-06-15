@@ -9,7 +9,7 @@ if Student.count == 0
   Student.create(:tc => '12345678901', :first_name => 'Tugce', :last_name => 'Yesilyurt', :email => 'nty@bil.omu.edu.tr', :password => '123456', :phone_number => '0544 111 11 11', :gender => "Kadin", :birthday => "25-10-1991", :address => "Foo Mah. Bar Sok. No:42 Baz/Samsun", :city_id => 55, :district_id => 7)
   Student.create(:tc => '12312312312', :first_name => 'Seda', :last_name => 'Dogan', :email => 'seda@bil.omu.edu.tr', :password => '123456', :phone_number => '0541 111 11 11', :gender => "Kadin", :birthday => "11-11-1989", :address => "Foo Mah. Bar Sok. No:42 Baz/Samsun", :city_id => 33, :district_id => 4)
   Student.create(:tc => '13452345234', :first_name => 'Begum', :last_name => 'Topyildiz', :email => 'beg@bil.omu.edu.tr', :password => '123456', :phone_number => '0532 111 11 11', :gender => "Kadin", :birthday => "21-05-1991", :address => "Foo Mah. Bar Sok. No:42 Baz/Samsun", :city_id => 51, :district_id => 1)
-  Student.create(:tc => '12345678901', :first_name => 'Canan', :last_name => 'Demirel', :email => 'kcd@bil.omu.edu.tr', :password => '123456', :phone_number => '0542 111 11 11', :gender => "Kadin", :birthday => "15-02-1990", :address => "Foo Mah. Bar Sok. No:42 Baz/Samsun", :city_id => 52, :district_id => 3)
+  Student.create(:tc => '32145678901', :first_name => 'Canan', :last_name => 'Demirel', :email => 'kcd@bil.omu.edu.tr', :password => '123456', :phone_number => '0542 111 11 11', :gender => "Kadin", :birthday => "15-02-1990", :address => "Foo Mah. Bar Sok. No:42 Baz/Samsun", :city_id => 52, :district_id => 3)
 end
 if Role.count == 0
   Role.create(:name => 'Yazilim')

@@ -1,20 +1,30 @@
 Rails uygulasını çalıştırmak için aşağıdaki adımları uygulayın:
 
-$ git clone git@github.com:kcd/atakum.git
+- Depo bilgisayara clonlanır. 
+
+	$ git clone git@github.com:kcd/atakum.git 
+
+- 'atakum' dizinine gidilir.
 
 $ cd atakum
 
+- Gemfile 'da bulunan gemler aktive edilir.
+
 $ bundle install --without production
+
+- Sistemde varolan veritabanı silinir yenisi oluşturulur
 
 $ mkdb staj staj
 
 $ rake db:drop
 
-$rake db:create
+$ rake db:create
 
 $ rake db:migrate
 
 $ rake db:seed
+
+- İl ve ilçe kayıtları sisteme aktarılmalıdır.
 
 $ rails db -p < db/city-district-list.sql
 
