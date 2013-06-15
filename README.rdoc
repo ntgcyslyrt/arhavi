@@ -2,11 +2,11 @@ Rails uygulasını çalıştırmak için aşağıdaki adımları uygulayın:
 
 - Depo bilgisayara clonlanır. 
 
-	$ git clone git@github.com:kcd/atakum.git 
+	$ git clone git@github.com:ntgcyslyrt/sys.git 
 
-- 'atakum' dizinine gidilir.
+- 'sys' dizinine gidilir.
 
-$ cd atakum
+$ cd sys
 
 - Gemfile 'da bulunan gemler aktive edilir.
 
